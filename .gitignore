@@ -1,0 +1,8 @@
+/venv/
+/htmlcov/
+/.tox/
+/poetry.lock
+/.idea/
+/dist/
+
+__pycache__
