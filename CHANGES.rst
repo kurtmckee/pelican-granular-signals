@@ -1,11 +1,23 @@
 ..  This file is part of the pelican-granular-signals plugin.
-..  Copyright 2021 Kurt McKee <contactme@kurtmckee.org>
+..  Copyright 2021-2022 Kurt McKee <contactme@kurtmckee.org>
 ..  Released under the MIT license.
 
 Changelog
 *********
 
 Unreleased changes
+==================
+
+
+
+
+1.0.1 - 2022-03-31
+==================
+
+*   Support Python 3.10.
+
+
+1.0.0 - 2021-08-08
 ==================
 
 *   Send five additional signals after Pelican's ``finalized`` signal:

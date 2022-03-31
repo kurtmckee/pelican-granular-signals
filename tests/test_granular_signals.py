@@ -1,8 +1,10 @@
 # This file is part of the pelican-granular-signals plugin.
-# Copyright 2021 Kurt McKee <contactme@kurtmckee.org>
+# Copyright 2021-2022 Kurt McKee <contactme@kurtmckee.org>
 # Released under the MIT license.
 
-from unittest.mock import patch, Mock
+import pathlib
+import time
+from unittest.mock import Mock, patch
 
 import pytest
 
@@ -83,3 +85,21 @@ def test_finalized_send(pelican_signals, blinker, unregistered):
     assert result[0] == (finalized_send, True), message
 
     assert len(result) == len(gs.signal_names) + 1
+
+
+root = pathlib.Path(__file__).parent.parent
+copyrighted_files = [
+    *list(root.glob("*.ini")),
+    *list(root.glob("*.rst")),
+    *list(root.glob("*.txt")),
+    *list((root / "src").rglob("*.py")),
+    *list((root / "tests").rglob("*.py")),
+]
+
+
+@pytest.mark.parametrize("path", copyrighted_files)
+def test_copyrights(path):
+    with path.open("r", encoding="utf8") as file:
+        assert f"2021-{time.gmtime().tm_year}" in file.read(
+            100
+        ), f"{path.name} has an incorrect copyright date"

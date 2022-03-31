@@ -1,5 +1,5 @@
 # This file is part of the pelican-granular-signals plugin.
-# Copyright 2021 Kurt McKee <contactme@kurtmckee.org>
+# Copyright 2021-2022 Kurt McKee <contactme@kurtmckee.org>
 # Released under the MIT license.
 
 import functools
@@ -7,7 +7,6 @@ from typing import Any, Callable, List, Tuple
 
 import blinker
 import pelican
-
 
 signal_names: Tuple[str, ...] = (
     "sitemap",
