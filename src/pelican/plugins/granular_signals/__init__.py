@@ -8,7 +8,6 @@ from typing import Any, Callable, List, Tuple
 import blinker
 import pelican
 
-
 signal_names: Tuple[str, ...] = (
     "sitemap",
     "optimize",
