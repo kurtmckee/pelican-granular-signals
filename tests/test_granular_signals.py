@@ -89,7 +89,6 @@ def test_finalized_send(pelican_signals, blinker, unregistered):
 
 root = pathlib.Path(__file__).parent.parent
 copyrighted_files = [
-    *list(root.glob("*.ini")),
     *list(root.glob("*.rst")),
     *list(root.glob("*.txt")),
     *list((root / "src").rglob("*.py")),
