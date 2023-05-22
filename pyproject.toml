@@ -48,3 +48,10 @@ fail_under = 100
 profile = "black"
 known_third_party = "pelican"
 known_first_party = "pelican.plugins.granular_signals"
+
+
+[tool.pytest.ini_options]
+addopts = "--color=yes"
+filterwarnings = [
+    "error",
+]
