@@ -2,13 +2,15 @@
 # Copyright 2021-2023 Kurt McKee <contactme@kurtmckee.org>
 # Released under the MIT license.
 
+from __future__ import annotations
+
 import functools
-from typing import Any, Callable, List, Tuple
+import typing
 
 import blinker
 import pelican
 
-signal_names: Tuple[str, ...] = (
+signal_names: tuple[str, ...] = (
     "sitemap",
     "optimize",
     "minify",
@@ -20,7 +22,7 @@ signal_names: Tuple[str, ...] = (
 REGISTERED: bool = False
 
 
-def register():
+def register() -> None:
     """Add additional signals to Pelican.
 
     To help ensure that site finalization plugins can be called in
@@ -33,14 +35,14 @@ def register():
         return
 
     # Create new signals.
-    for signal_name in signal_names:
-        blinker.signal(signal_name)
+    for signal_name_ in signal_names:
+        blinker.signal(signal_name_)
 
     # Create a wrapper for the ``finalized`` signal.
-    def augment_finalized(original_send: Callable) -> Callable:
+    def augment_finalized(original_send: typing.Callable) -> typing.Callable:
         @functools.wraps(original_send)
         def wrapper(sender):
-            results: List[Tuple[Callable, Any]] = original_send(sender)
+            results: list[tuple[typing.Callable, typing.Any]] = original_send(sender)
             for signal_name in signal_names:
                 signal: blinker.base.NamedSignal = blinker.signal(signal_name)
                 results.extend(signal.send(sender))

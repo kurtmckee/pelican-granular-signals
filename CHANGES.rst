@@ -8,7 +8,9 @@ Changelog
 Unreleased changes
 ==================
 
-*   Add support Python 3.11.
+*   Support Python 3.12.
+*   Support Python 3.11.
+*   Drop support for Python 3.7.
 *   Drop support for Python 3.6.
 
 
