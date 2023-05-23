@@ -88,4 +88,4 @@ in your plugin's ``register()`` function.
 ..  =====
 
 ..  _Pelican: https://getpelican.com/
-..  _blinker: https://github.com/jek/blinker
+..  _blinker: https://github.com/pallets-eco/blinker
