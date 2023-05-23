@@ -1,5 +1,5 @@
 ..  This file is part of the pelican-granular-signals plugin.
-..  Copyright 2021-2022 Kurt McKee <contactme@kurtmckee.org>
+..  Copyright 2021-2023 Kurt McKee <contactme@kurtmckee.org>
 ..  Released under the MIT license.
 
 pelican-granular-signals
@@ -88,4 +88,4 @@ in your plugin's ``register()`` function.
 ..  =====
 
 ..  _Pelican: https://getpelican.com/
-..  _blinker: https://github.com/jek/blinker
+..  _blinker: https://github.com/pallets-eco/blinker
