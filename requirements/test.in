@@ -1,0 +1,5 @@
+coverage[toml]
+pelican
+pytest
+pytest-randomly
+pyfakefs

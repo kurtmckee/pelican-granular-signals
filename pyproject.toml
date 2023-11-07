@@ -21,7 +21,6 @@ build-backend = "poetry.core.masonry.api"
 [tool.coverage.run]
 branch = true
 parallel = true
-data_file = ".tox/.coverage-data-files/.coverage"
 source = [
     "pelican.plugins.granular_signals",
     "tests",
@@ -39,6 +38,19 @@ source = [
 fail_under = 100
 
 
+[tool.mypy]
+packages = "src.pelican.plugins.granular_signals"
+strict = true
+sqlite_cache = true
+
+
+[[tool.mypy.overrides]]
+module = [
+    "pelican.*",
+]
+ignore_missing_imports = true
+
+
 [tool.isort]
 profile = "black"
 known_third_party = "pelican"
@@ -49,4 +61,6 @@ known_first_party = "pelican.plugins.granular_signals"
 addopts = "--color=yes"
 filterwarnings = [
     "error",
+    # dateutil throws a DeprecationWarning on Python 3.12.
+    "ignore:datetime.datetime.utcfromtimestamp:DeprecationWarning:dateutil",
 ]
