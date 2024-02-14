@@ -82,7 +82,7 @@ jobs:
         id: 'setup-python'
         uses: 'actions/setup-python@65d7f2d534ac1bc67fcd62888c5f4f3d2cb2b236' # v4.7.1
         with:
-          python-version: '${{ join(matrix.run.cpythons, "\n") }}'
+          python-version: "${{ join(matrix.run.cpythons, '\n') }}"
           allow-prereleases: true
           # Cache packages that pip downloads.
           # This does not cache the installed files.
@@ -103,7 +103,7 @@ jobs:
             .mypy_cache/
             .tox/
             .venv/
-          key: 'test-os=${{ runner.os }}-hash=${{ hashFiles(".python-identifiers", "pyproject.toml", "tox.ini", "requirements/**/*.txt") }}'
+          key: "test-os=${{ runner.os }}-hash=${{ hashFiles('.python-identifiers', 'pyproject.toml', 'tox.ini', 'requirements/**/*.txt') }}"
 
       - name: 'Identify venv path'
         shell: 'bash'
