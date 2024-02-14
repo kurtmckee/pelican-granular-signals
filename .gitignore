@@ -1,7 +1,7 @@
 # Python-specific gitignore copied from:
 # https://github.com/github/gitignore/blob/main/Python.gitignore
 # Uncommented lines:
-# poetry.lock
+# /poetry.lock (modified to only exclude /poetry.lock)
 # idea/
 # --------------------------------------------------------------
 
@@ -106,7 +106,7 @@ ipython_config.py
 #   This is especially recommended for binary packages to ensure reproducibility, and is more
 #   commonly ignored for libraries.
 #   https://python-poetry.org/docs/basic-usage/#commit-your-poetrylock-file-to-version-control
-poetry.lock
+/poetry.lock
 
 # pdm
 #   Similar to Pipfile.lock, it is generally recommended to include pdm.lock in version control.

@@ -1,42 +1,60 @@
 ci:
-  autoupdate_schedule: "monthly"
+  autoupdate_schedule: 'monthly'
+
+default_language_version:
+  python: 'python3.12'
 
 repos:
-  - repo: "meta"
+  - repo: 'meta'
     hooks:
-      - id: "check-hooks-apply"
-      - id: "check-useless-excludes"
+      - id: 'check-hooks-apply'
+      - id: 'check-useless-excludes'
 
-  - repo: "https://github.com/pre-commit/pre-commit-hooks"
-    rev: "v4.5.0"
+  - repo: 'https://github.com/pre-commit/pre-commit-hooks'
+    rev: 'v4.5.0'
     hooks:
-      - id: "trailing-whitespace"
-      - id: "end-of-file-fixer"
-      - id: "check-yaml"
-      - id: "check-added-large-files"
-
-  - repo: "https://github.com/asottile/pyupgrade"
-    rev: "v3.15.0"
-    hooks:
-      - name: "Enforce Python 3.8+ idioms"
-        id: "pyupgrade"
+      - id: 'check-added-large-files'
+      - id: 'check-merge-conflict'
+      - id: 'check-toml'
+      - id: 'check-yaml'
+      - id: 'end-of-file-fixer'
+      - id: "mixed-line-ending"
         args:
-          - "--py38-plus"
+          - "--fix=lf"
+      - id: 'trailing-whitespace'
 
-  - repo: "https://github.com/psf/black-pre-commit-mirror"
-    rev: "23.11.0"
+  - repo: 'https://github.com/asottile/pyupgrade'
+    rev: 'v3.15.0'
     hooks:
-      - id: "black"
-        language_version: "python3.8"
+      - name: 'Enforce Python 3.8+ idioms'
+        id: 'pyupgrade'
+        args:
+          - '--py38-plus'
 
-  - repo: "https://github.com/pycqa/isort"
-    rev: "5.12.0"
+  - repo: 'https://github.com/psf/black-pre-commit-mirror'
+    rev: '24.2.0'
     hooks:
-      - id: "isort"
+      - id: 'black'
 
-  - repo: "https://github.com/PyCQA/flake8"
-    rev: "6.1.0"
+  - repo: 'https://github.com/pycqa/isort'
+    rev: '5.13.2'
     hooks:
-      - id: "flake8"
+      - id: 'isort'
+
+  - repo: 'https://github.com/PyCQA/flake8'
+    rev: '7.0.0'
+    hooks:
+      - id: 'flake8'
         additional_dependencies:
-          - "flake8-bugbear==23.9.16"
+          - 'flake8-bugbear==24.2.6'
+
+  - repo: 'https://github.com/editorconfig-checker/editorconfig-checker.python'
+    rev: '2.7.3'
+    hooks:
+      - id: 'editorconfig-checker'
+
+  - repo: 'https://github.com/python-jsonschema/check-jsonschema'
+    rev: '0.28.0'
+    hooks:
+      - id: 'check-dependabot'
+      - id: 'check-github-workflows'
