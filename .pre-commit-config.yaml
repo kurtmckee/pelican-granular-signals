@@ -24,7 +24,7 @@ repos:
       - id: "trailing-whitespace"
 
   - repo: "https://github.com/asottile/pyupgrade"
-    rev: "v3.15.0"
+    rev: "v3.15.2"
     hooks:
       - name: "Enforce Python 3.8+ idioms"
         id: "pyupgrade"
@@ -32,7 +32,7 @@ repos:
           - "--py38-plus"
 
   - repo: "https://github.com/psf/black-pre-commit-mirror"
-    rev: "24.2.0"
+    rev: "24.3.0"
     hooks:
       - id: "black"
 
@@ -54,17 +54,17 @@ repos:
       - id: "editorconfig-checker"
 
   - repo: "https://github.com/python-jsonschema/check-jsonschema"
-    rev: "0.28.0"
+    rev: "0.28.1"
     hooks:
       - id: "check-dependabot"
       - id: "check-github-workflows"
 
   - repo: "https://github.com/rhysd/actionlint"
-    rev: "v1.6.26"
+    rev: "v1.6.27"
     hooks:
       - id: "actionlint"
 
   - repo: "https://github.com/kurtmckee/pre-commit-hooks"
-    rev: "v0.1.0"
+    rev: "v0.1.1"
     hooks:
       - id: "verify-consistent-pyproject-toml-python-requirements"
