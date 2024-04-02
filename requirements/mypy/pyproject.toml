@@ -1,14 +1,7 @@
 [tool.poetry]
-name = "mypy requirements"
-version = "0"
-description = ""
-authors = []
+package-mode = false
 
 [tool.poetry.dependencies]
 python = ">=3.8"
 blinker = "*"
 mypy = "*"
-
-[build-system]
-requires = ["poetry-core"]
-build-backend = "poetry.core.masonry.api"
