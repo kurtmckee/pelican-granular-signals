@@ -8,6 +8,10 @@ Changelog
 Unreleased changes
 ==================
 
+
+1.2.0 - 2024-09-09
+==================
+
 *   Support Python 3.13.
 *   Drop support for Python 3.8.
 
