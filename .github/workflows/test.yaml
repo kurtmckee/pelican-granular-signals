@@ -1,0 +1,60 @@
+name: "🧪 Test"
+
+on:
+  pull_request:
+  push:
+    branches:
+      - "main"
+      - "releases"
+
+jobs:
+  test:
+    name:
+      "${{
+        (startswith(matrix.runner, 'ubuntu') && 'Linux')
+        || (startswith(matrix.runner, 'macos') && 'macOS')
+        || (startswith(matrix.runner, 'windows') && 'Windows')
+      }}"
+
+    strategy:
+      matrix:
+        runner:
+          - "ubuntu-latest"
+          - "macos-latest"
+          - "windows-latest"
+
+        include:
+          # Common settings, applied to all runners.
+          - tox-post-environments:
+              - "coverage-report-ci"
+              - "mypy"
+            cache-paths:
+              - ".mypy_cache/"
+            cache-key-hash-files:
+              - "pyproject.toml"
+              - "requirements/**/*.txt"
+
+          # Test all supported Python versions on Linux.
+          - runner: "ubuntu-latest"
+            cpythons:
+              - "3.9"
+              - "3.10"
+              - "3.11"
+              - "3.12"
+            cpython-beta: "3.13"
+
+          # Test lowest and highest versions on Mac.
+          - runner: "macos-latest"
+            cpythons:
+              - "3.9"
+              - "3.12"
+
+          # Test lowest and highest versions on Windows.
+          - runner: "windows-latest"
+            cpythons:
+              - "3.9"
+              - "3.12"
+
+    uses: "kurtmckee/github-workflows/.github/workflows/tox.yaml@420931a88d3f09ca8dbce4778d145ed610c231e0" # v0.4
+    with:
+      config: "${{ toJSON(matrix) }}"

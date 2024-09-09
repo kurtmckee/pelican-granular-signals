@@ -1,32 +1,70 @@
-repos:
-  - repo: "https://github.com/pre-commit/pre-commit-hooks"
-    rev: "v4.4.0"
-    hooks:
-      - id: "trailing-whitespace"
-      - id: "end-of-file-fixer"
-      - id: "check-yaml"
-      - id: "check-added-large-files"
+ci:
+  autoupdate_schedule: "quarterly"
 
-  - repo: "https://github.com/psf/black"
-    rev: "23.3.0"
+default_language_version:
+  python: "python3.12"
+
+repos:
+  - repo: "meta"
+    hooks:
+      - id: "check-hooks-apply"
+      - id: "check-useless-excludes"
+
+  - repo: "https://github.com/pre-commit/pre-commit-hooks"
+    rev: "v4.6.0"
+    hooks:
+      - id: "check-added-large-files"
+      - id: "check-merge-conflict"
+      - id: "check-toml"
+      - id: "check-yaml"
+      - id: "end-of-file-fixer"
+      - id: "mixed-line-ending"
+        args:
+          - "--fix=lf"
+      - id: "trailing-whitespace"
+
+  - repo: "https://github.com/asottile/pyupgrade"
+    rev: "v3.17.0"
+    hooks:
+      - name: "Enforce Python 3.9+ idioms"
+        id: "pyupgrade"
+        args:
+          - "--py39-plus"
+
+  - repo: "https://github.com/psf/black-pre-commit-mirror"
+    rev: "24.8.0"
     hooks:
       - id: "black"
 
   - repo: "https://github.com/pycqa/isort"
-    rev: "5.12.0"
+    rev: "5.13.2"
     hooks:
       - id: "isort"
 
   - repo: "https://github.com/PyCQA/flake8"
-    rev: "6.0.0"
+    rev: "7.1.1"
     hooks:
       - id: "flake8"
-        additional_dependencies: ["flake8-bugbear==23.5.9"]
+        additional_dependencies:
+          - "flake8-bugbear==24.8.19"
 
-  - repo: "https://github.com/asottile/pyupgrade"
-    rev: "v3.4.0"
+  - repo: "https://github.com/editorconfig-checker/editorconfig-checker.python"
+    rev: "3.0.3"
     hooks:
-      - name: "Enforce Python 3.8+ idioms"
-        id: "pyupgrade"
-        args:
-          - "--py38-plus"
+      - id: "editorconfig-checker"
+
+  - repo: "https://github.com/python-jsonschema/check-jsonschema"
+    rev: "0.29.2"
+    hooks:
+      - id: "check-dependabot"
+      - id: "check-github-workflows"
+
+  - repo: "https://github.com/rhysd/actionlint"
+    rev: "v1.7.1"
+    hooks:
+      - id: "actionlint"
+
+  - repo: "https://github.com/kurtmckee/pre-commit-hooks"
+    rev: "v0.1.1"
+    hooks:
+      - id: "verify-consistent-pyproject-toml-python-requirements"

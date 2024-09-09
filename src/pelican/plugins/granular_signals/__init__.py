@@ -1,5 +1,5 @@
 # This file is part of the pelican-granular-signals plugin.
-# Copyright 2021-2023 Kurt McKee <contactme@kurtmckee.org>
+# Copyright 2021-2024 Kurt McKee <contactme@kurtmckee.org>
 # Released under the MIT license.
 
 from __future__ import annotations
@@ -22,6 +22,11 @@ signal_names: tuple[str, ...] = (
 REGISTERED: bool = False
 
 
+# mypy wants `typing.Callable`, below, to have type arguments.
+# blinker itself doesn't do this, so this mypy error is disabled.
+# mypy: disable-error-code="type-arg"
+
+
 def register() -> None:
     """Add additional signals to Pelican.
 
@@ -41,7 +46,7 @@ def register() -> None:
     # Create a wrapper for the ``finalized`` signal.
     def augment_finalized(original_send: typing.Callable) -> typing.Callable:
         @functools.wraps(original_send)
-        def wrapper(sender):
+        def wrapper(sender: typing.Any) -> list[tuple[typing.Callable, typing.Any]]:
             results: list[tuple[typing.Callable, typing.Any]] = original_send(sender)
             for signal_name in signal_names:
                 signal: blinker.base.NamedSignal = blinker.signal(signal_name)

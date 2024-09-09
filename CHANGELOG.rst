@@ -1,5 +1,5 @@
 ..  This file is part of the pelican-granular-signals plugin.
-..  Copyright 2021-2023 Kurt McKee <contactme@kurtmckee.org>
+..  Copyright 2021-2024 Kurt McKee <contactme@kurtmckee.org>
 ..  Released under the MIT license.
 
 Changelog
@@ -9,6 +9,11 @@ Unreleased changes
 ==================
 
 
+1.2.0 - 2024-09-09
+==================
+
+*   Support Python 3.13.
+*   Drop support for Python 3.8.
 
 1.1.0 - 2023-05-22
 ==================
