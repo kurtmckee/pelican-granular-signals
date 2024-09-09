@@ -1,3 +1,11 @@
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+
+# poetry
+# ------
+
 [tool.poetry]
 name = "pelican-granular-signals"
 version = "1.1.0"
@@ -10,13 +18,11 @@ packages = [
 readme = "README.rst"
 
 [tool.poetry.dependencies]
-python = ">=3.8"
+python = ">=3.9"
 
 
-[build-system]
-requires = ["poetry-core>=1.0.0"]
-build-backend = "poetry.core.masonry.api"
-
+# coverage
+# --------
 
 [tool.coverage.run]
 branch = true
@@ -26,23 +32,32 @@ source = [
     "tests",
 ]
 
-
 [tool.coverage.paths]
 source = [
     "src",
     "*/site-packages",
 ]
 
-
 [tool.coverage.report]
 fail_under = 100
 
+
+# isort
+# -----
+
+[tool.isort]
+profile = "black"
+known_third_party = "pelican"
+known_first_party = "pelican.plugins.granular_signals"
+
+
+# mypy
+# ----
 
 [tool.mypy]
 packages = "src.pelican.plugins.granular_signals"
 strict = true
 sqlite_cache = true
-
 
 [[tool.mypy.overrides]]
 module = [
@@ -51,11 +66,8 @@ module = [
 ignore_missing_imports = true
 
 
-[tool.isort]
-profile = "black"
-known_third_party = "pelican"
-known_first_party = "pelican.plugins.granular_signals"
-
+# pytest
+# ------
 
 [tool.pytest.ini_options]
 addopts = "--color=yes"
