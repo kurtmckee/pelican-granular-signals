@@ -41,19 +41,19 @@ jobs:
               - "3.10"
               - "3.11"
               - "3.12"
-            cpython-beta: "3.13"
+              - "3.13"
 
           # Test lowest and highest versions on Mac.
           - runner: "macos-latest"
             cpythons:
               - "3.9"
-              - "3.12"
+              - "3.13"
 
           # Test lowest and highest versions on Windows.
           - runner: "windows-latest"
             cpythons:
               - "3.9"
-              - "3.12"
+              - "3.13"
 
     uses: "kurtmckee/github-workflows/.github/workflows/tox.yaml@2f156c58bf4ceebc623014b407f5711899e41235" # v1.0
     with:
