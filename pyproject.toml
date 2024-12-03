@@ -16,6 +16,11 @@ packages = [
     { include = "pelican", from = "src" }
 ]
 readme = "README.rst"
+keywords = ["pelican", "plugin"]
+classifiers = [
+    "Framework :: Pelican :: Plugins",
+    "Development Status :: 5 - Production/Stable",
+]
 
 [tool.poetry.dependencies]
 python = ">=3.9"
@@ -73,6 +78,4 @@ ignore_missing_imports = true
 addopts = "--color=yes"
 filterwarnings = [
     "error",
-    # dateutil throws a DeprecationWarning on Python 3.12.
-    "ignore:datetime.datetime.utcfromtimestamp:DeprecationWarning:dateutil",
 ]
