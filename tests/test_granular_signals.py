@@ -1,5 +1,5 @@
 # This file is part of the pelican-granular-signals plugin.
-# Copyright 2021-2024 Kurt McKee <contactme@kurtmckee.org>
+# Copyright 2021-2025 Kurt McKee <contactme@kurtmckee.org>
 # Released under the MIT license.
 
 import pathlib

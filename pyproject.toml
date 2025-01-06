@@ -1,3 +1,27 @@
+[project]
+name = "pelican-granular-signals"
+version = "1.2.0"
+description = "Add more granular signals to Pelican."
+authors = [
+    { name = "Kurt McKee", email = "contactme@kurtmckee.org" },
+]
+license = "MIT"
+readme = "README.rst"
+keywords = [
+    "pelican",
+    "plugin",
+]
+classifiers = [
+    "Development Status :: 5 - Production/Stable",
+    "Framework :: Pelican :: Plugins",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+]
+requires-python = ">=3.9"
+
+[project.urls]
+Repository = "https://github.com/kurtmckee/pelican-granular-signals"
+
 [build-system]
 requires = ["poetry-core>=1.0.0"]
 build-backend = "poetry.core.masonry.api"
@@ -7,23 +31,9 @@ build-backend = "poetry.core.masonry.api"
 # ------
 
 [tool.poetry]
-name = "pelican-granular-signals"
-version = "1.2.0"
-description = "Add more granular signals to Pelican."
-authors = ["Kurt McKee <contactme@kurtmckee.org>"]
-license = "MIT"
 packages = [
     { include = "pelican", from = "src" }
 ]
-readme = "README.rst"
-keywords = ["pelican", "plugin"]
-classifiers = [
-    "Framework :: Pelican :: Plugins",
-    "Development Status :: 5 - Production/Stable",
-]
-
-[tool.poetry.dependencies]
-python = ">=3.9"
 
 
 # coverage
