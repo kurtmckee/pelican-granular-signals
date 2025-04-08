@@ -8,6 +8,12 @@ Changelog
 Unreleased changes
 ==================
 
+Please see the fragment files in the `changelog.d directory`_.
+
+..  _changelog.d directory: https://github.com/kurtmckee/pelican-granular-signals/tree/main/changelog.d
+
+
+..  scriv-insert-here
 
 1.2.0 - 2024-09-09
 ==================
